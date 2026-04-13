@@ -12,10 +12,7 @@
     <depend>rclcpp</depend>
     <depend>rosidl_default_generators</depend>
     <depend>rosidl_default_runtime</depend>
-    <depend>rosidl_interface_packages</depend>
     <depend>transfer_interfaces</depend>
-
-    <member_of_group>rosidl_interface_packages</member_of_group>
 
     <test_depend>ament_lint_auto</test_depend>
     <test_depend>ament_lint_common</test_depend>

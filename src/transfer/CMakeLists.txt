@@ -20,6 +20,7 @@ find_package(nav_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
 find_package(tf2_msgs REQUIRED)
 find_package(tf2_ros REQUIRED)
+find_package(tf2_geometry_msgs REQUIRED)
 find_package(transfer_interfaces REQUIRED)
 
 add_executable(jetson2app src/Jetson2App.cpp)
@@ -31,6 +32,7 @@ ament_target_dependencies(jetson2app
     geometry_msgs
     tf2_msgs
     tf2_ros
+    tf2_geometry_msgs
 )
 
 add_executable(jetson2motion src/Jetson2Motion.cpp)
@@ -42,6 +44,7 @@ ament_target_dependencies(jetson2motion
     geometry_msgs
     tf2_msgs
     tf2_ros
+    tf2_geometry_msgs
 )
 
 add_executable(sensor_checker src/SensorChecker.cpp)
@@ -53,6 +56,7 @@ ament_target_dependencies(sensor_checker
     geometry_msgs
     tf2_msgs
     tf2_ros
+    tf2_geometry_msgs
 )
 
 install(TARGETS jetson2motion jetson2app sensor_checker
