@@ -256,12 +256,15 @@ ros2 launch transfer transfer_launch.py
 # 2. 给心跳（新终端保持运行）
 ros2 topic pub -r 2 /simple_cmd transfer_interfaces/msg/MotionSimpleCMD "{cmd_code: 0x21040001, size: 0, type: 0}"
 
-# 3. 切到 Navi Mode
+# 3. switch stands/sit
+ros2 topic pub --once /simple_cmd transfer_interfaces/msg/MotionSimpleCMD "{cmd_code: 0x21010202, size: 0, type: 0}"
+
+# 4. 切到 Navi Mode
 ros2 topic pub --once /simple_cmd transfer_interfaces/msg/MotionSimpleCMD "{cmd_code: 0x21010C03, size: 0, type: 0}"
 
-# 4. 控制移动（前移）
+# 5. 控制移动（前移）
 ros2 topic pub -r 10 -t 5 /cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.05, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}"
 
-# 5. 停止移动
+# 6. 停止移动
 ros2 topic pub --once /cmd_vel geometry_msgs/msg/Twist "{linear: {x: 0.0, y: 0.0, z: 0.0}, angular: {x: 0.0, y: 0.0, z: 0.0}}"
 ```
